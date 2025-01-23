@@ -46,7 +46,8 @@ class CreateAccountScreenPartTwo extends StatelessWidget {
             const Spacer(),
             GestureDetector(
               onTap: () => _onNextTap(context),
-              child: Container(
+              child: AnimatedContainer(
+                duration: const Duration(milliseconds: 300),
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30),

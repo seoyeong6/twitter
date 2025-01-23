@@ -1,11 +1,11 @@
 import 'package:go_router/go_router.dart';
-import 'package:twitter/screens/login/initial_screen.dart';
+import 'package:twitter/screens/login/password_screen.dart';
 import 'package:twitter/screens/login/account_screen2.dart';
 
 final router = GoRouter(
   initialLocation: '/',
   routes: [
-    GoRoute(path: '/', builder: (context, state) => const InitialScreen()),
+    GoRoute(path: '/', builder: (context, state) => const PasswordScreen()),
     GoRoute(
       path: '/account_screen_2',
       builder: (context, state) {
