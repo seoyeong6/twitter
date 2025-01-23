@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:twitter/screens/login/initial_screen.dart';
+import 'package:twitter/router.dart';
 
 void main() {
   runApp(const TwitterApp());
@@ -10,13 +10,13 @@ class TwitterApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
+      routerConfig: router,
       title: 'Twitter',
       theme: ThemeData(
         primaryColor: Colors.blue,
         scaffoldBackgroundColor: Colors.white,
       ),
-      home: InitialScreen(),
     );
   }
 }

@@ -1,26 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:twitter/contents/gaps.dart';
 import 'package:twitter/contents/sizes.dart';
 import 'package:twitter/screens/login/auth_button.dart';
-import 'package:twitter/screens/login/account_screen.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class InitialScreen extends StatelessWidget {
   const InitialScreen({super.key});
 
   void loginTab(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const CreateAccountScreen()),
-    );
+    context.push("/account_screen_2");
   }
 
   @override
   Widget build(BuildContext context) {
+    FocusScope.of(context).unfocus();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: FaIcon(FontAwesomeIcons.twitter),
+        title: FaIcon(
+          FontAwesomeIcons.twitter,
+          color: Theme.of(context).primaryColor,
+        ),
       ),
       body: SafeArea(
         child: Padding(
