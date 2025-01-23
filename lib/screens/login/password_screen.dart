@@ -24,7 +24,7 @@ class _PasswordScreenState extends State<PasswordScreen> {
     if (_passwordController.text.isEmpty) return;
     if (_passwordController.text.length < 8) {
       setState(() {
-        _error = "비밀번호는 8자 이상이어야 합니다";
+        _error = "Password must be at least 8 characters";
       });
       return;
     }
@@ -50,10 +50,7 @@ class _PasswordScreenState extends State<PasswordScreen> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        onScaffoldTap(context);
-        setState(() {});
-      },
+      onTap: () => onScaffoldTap(context),
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.white,

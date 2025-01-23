@@ -4,9 +4,10 @@ import 'package:twitter/contents/gaps.dart';
 import 'package:twitter/contents/sizes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:twitter/screens/login/customize_experience_screen.dart';
+import 'package:twitter/screens/login/create_account_screen_part_two.dart';
 
-class CreateAccountScreen2 extends StatefulWidget {
-  const CreateAccountScreen2({
+class CreateAccountScreen extends StatefulWidget {
+  const CreateAccountScreen({
     super.key,
     required this.name,
     required this.contact,
@@ -18,10 +19,10 @@ class CreateAccountScreen2 extends StatefulWidget {
   final String birthday;
 
   @override
-  State<CreateAccountScreen2> createState() => _CreateAccountScreen2State();
+  State<CreateAccountScreen> createState() => _CreateAccountScreenState();
 }
 
-class _CreateAccountScreen2State extends State<CreateAccountScreen2> {
+class _CreateAccountScreenState extends State<CreateAccountScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController dateController = TextEditingController();
 
@@ -53,8 +54,19 @@ class _CreateAccountScreen2State extends State<CreateAccountScreen2> {
   }
 
   void onSubmitTap() {
-    if (_formKey.currentState!.validate()) {
-      onNextTap();
+    if (_formKey.currentState?.validate() ?? false) {
+      _formKey.currentState?.save();
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder:
+              (context) => CreateAccountScreenPartTwo(
+                name: _name,
+                contact: _phone,
+                birthday: _date,
+              ),
+        ),
+      );
     }
   }
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:twitter/contents/gaps.dart';
 import 'package:twitter/contents/sizes.dart';
+import 'package:twitter/screens/login/create_account_screen.dart';
 import 'package:twitter/screens/login/auth_button.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -9,7 +9,14 @@ class InitialScreen extends StatelessWidget {
   const InitialScreen({super.key});
 
   void loginTab(BuildContext context) {
-    context.push("/account_screen_2");
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder:
+            (context) =>
+                const CreateAccountScreen(name: '', contact: '', birthday: ''),
+      ),
+    );
   }
 
   @override

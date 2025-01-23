@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:go_router/go_router.dart';
+import 'package:twitter/screens/login/customize_experience_screen.dart';
 
 class CreateAccountScreenPartTwo extends StatelessWidget {
   final String name;
@@ -15,7 +15,17 @@ class CreateAccountScreenPartTwo extends StatelessWidget {
   });
 
   void _onNextTap(BuildContext context) {
-    context.push("/interest");
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder:
+            (context) => CustomizeExperienceScreen(
+              name: name,
+              contact: contact,
+              birthday: birthday,
+            ),
+      ),
+    );
   }
 
   @override
