@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:twitter/screens/login/initial_screen.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
   runApp(const TwitterApp());
@@ -15,8 +16,23 @@ class TwitterApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Colors.blue,
         scaffoldBackgroundColor: Colors.white,
+        appBarTheme: const AppBarTheme(
+          iconTheme: IconThemeData(color: Colors.blue),
+          backgroundColor: Colors.white,
+          titleTextStyle: TextStyle(),
+        ),
       ),
-      home: const InitialScreen(),
+      home: Scaffold(
+        appBar: AppBar(
+          title: const FaIcon(
+            FontAwesomeIcons.twitter,
+            color: Colors.blue,
+            size: 24,
+          ),
+          centerTitle: true,
+        ),
+        body: const InitialScreen(),
+      ),
     );
   }
 }

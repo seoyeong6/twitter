@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:twitter/contents/gaps.dart';
 import 'package:twitter/contents/sizes.dart';
-import 'package:twitter/screens/login/password_screen.dart';
+import 'package:twitter/screens/login/confirmation_code_screen.dart';
 
 class CustomizeExperienceScreen extends StatefulWidget {
   const CustomizeExperienceScreen({
@@ -31,9 +31,11 @@ class _CustomizeExperienceScreenState extends State<CustomizeExperienceScreen> {
   }
 
   void onNextTap() {
-    Navigator.of(
-      context,
-    ).push(MaterialPageRoute(builder: (context) => PasswordScreen()));
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => ConfirmationCodeScreen(contact: widget.contact),
+      ),
+    );
   }
 
   @override
