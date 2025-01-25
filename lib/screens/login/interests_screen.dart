@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:twitter/contents/sizes.dart';
 import 'package:twitter/contents/gaps.dart';
+import 'package:twitter/screens/login/interests_part_two.dart';
 
 List<String> interests = [
   'Fashion\n&beauty',
@@ -73,7 +74,9 @@ class _InterestsScreenState extends State<InterestsScreen> {
                     color: Colors.grey.shade600,
                   ),
                 ),
-                Gaps.v40,
+                Gaps.v10,
+                Divider(color: Colors.grey.shade300),
+                Gaps.v10,
                 Wrap(
                   runSpacing: 15,
                   spacing: 15,
@@ -148,24 +151,34 @@ class _InterestsScreenState extends State<InterestsScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text("Great work!"),
-            Container(
-              padding: EdgeInsets.symmetric(
-                vertical: Sizes.size8,
-                horizontal: Sizes.size16,
-              ),
-              width: 100,
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                color:
-                    isSelected ? Theme.of(context).primaryColor : Colors.white,
-                borderRadius: BorderRadius.circular(Sizes.size32),
-              ),
-              child: Text(
-                'Next',
-                style: TextStyle(
-                  color: isSelected ? Colors.white : Colors.black,
-                  fontSize: Sizes.size16,
-                  fontWeight: FontWeight.w600,
+            GestureDetector(
+              onTap: () {
+                if (isSelected) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => InterestsPartTwo()),
+                  );
+                }
+              },
+              child: Container(
+                padding: EdgeInsets.symmetric(
+                  vertical: Sizes.size8,
+                  horizontal: Sizes.size16,
+                ),
+                width: 100,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color:
+                      isSelected ? Theme.of(context).primaryColor : Colors.grey,
+                  borderRadius: BorderRadius.circular(Sizes.size32),
+                ),
+                child: Text(
+                  'Next',
+                  style: TextStyle(
+                    color: isSelected ? Colors.white : Colors.black,
+                    fontSize: Sizes.size16,
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
               ),
             ),
