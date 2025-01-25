@@ -115,7 +115,7 @@ class _ConfirmationCodeScreenState extends State<ConfirmationCodeScreen> {
               ),
               Gaps.v40,
               Text(
-                'Did\'nt receive email?',
+                'Didn\'t receive email?',
                 style: TextStyle(
                   fontSize: Sizes.size16,
                   color: Theme.of(context).primaryColor,
